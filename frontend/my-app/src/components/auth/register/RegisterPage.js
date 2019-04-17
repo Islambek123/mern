@@ -1,12 +1,21 @@
 import React from 'react';
 import RegisterForm from './RegisterForm';
+import { connect } from 'react-redux';
+import { register } from '../../../actions/authActions'
+import PropTypes from 'prop-types';
 
-class RegisterPage extends React.Component{
-    render(){
-        return(
-            <RegisterForm/>
+class RegisterPage extends React.Component {
+    render() {
+        const { register } = this.props;
+        return (
+
+            <RegisterForm register={register} />
         );
     }
 }
 
-export default RegisterPage;
+RegisterPage.propTypes = {
+    register: PropTypes.func.isRequired
+}
+
+export default connect(null, { register })(RegisterPage);
