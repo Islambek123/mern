@@ -19,26 +19,24 @@ import { SET_CURRENT_USER } from './types';
 //     };
 // }
 
-// export function login(data) {
-//     return dispatch => {
-//         return axios.post('https://localhost:44318/api/auth/login', data)
-//             .then(res => {
-//                 var token = res.data;
-//                 console.log('--get token serve--', token);
-//                 var user = jwt.decode(token);
-//                 localStorage.setItem('jwtToken', token);
-//                 //setAuthorizationToken(token);
-//                 dispatch(setCurrentUser(user));
-//             });
-//     }
-// }
+export const login = (data) => dispatch => {
+    return axios.post('http://localhost:4000/user/login', data)
+        .then(res=>{
+            console.log({res});
+            localStorage.setItem('jwt', res.data);
+            //var token = res.data;
+            
+            //var user = jwt.decode(token);
+            //localStorage.setItem('jwtToken', token);
+            //setAuthorizationToken(token);
+            //dispatch(setCurrentUser(user));
+        });
+
+}
 
 export const register = (data) => dispatch => {
-    axios.post('http://localhost:4000/register', data)
+    return axios.post('http://localhost:4000/user/register', data)
         .then(res => {
             console.log(res);
         });
-    // return dispatch => {
-    //     return axios.post('https://localhost:44318/api/auth/register', data);
-    // }
 }

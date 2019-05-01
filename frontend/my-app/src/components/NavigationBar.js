@@ -4,22 +4,22 @@ import { Link } from 'react-router-dom';
 class NavigationBar extends Component {
   render() {
     return (
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div className="container-fluid">
-          <p className="navbar-text">
-          <Link  className="navbar-brand" to="/">Home</Link>
-          </p>
+          <span className="navbar-text align-middle">
+            <Link  className="navbar-brand" to="/">Home</Link>
+          </span>
           <form>
-            <ul className="nav navbar-nav">
+            <ul className="nav navbar-nav align-middle">
               <li>
-                <p className="nav-link" >
+                <span className="nav-link" >
                   <Link className="navbar-text" to="/profile/sign-in">Sign In</Link>
-                </p>
+                </span>
               </li>
               <li>
-                <p className="nav-link" >
+                <span className="nav-link" >
                   <Link className="navbar-text" to="/register">Register</Link>
-                </p>
+                </span>
               </li>
             </ul>
           </form>
